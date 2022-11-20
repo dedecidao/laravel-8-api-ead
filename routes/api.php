@@ -21,7 +21,7 @@ Route::get('/courses', [CourseController::class, 'index']);
 
 Route::get('/', function () {
     return response()->json([
-        'message' => 'Bem vindo a esta API',
+        'message' => 'Bem vindo, API Laravel 8 por @dedecidao GitHub',
         'version' => '1.0.0',
         'success' => true
     ]);

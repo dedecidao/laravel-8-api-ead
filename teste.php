@@ -1,3 +1,11 @@
+### COMANDOS UTILIZADOS ###
+
+
+# docker-compose run name_container bash -> to access the terminal of container (SSH)
+
+
+# php artisan make:model Module -mc -> to create a model with params Migrate and Controller
+
 mysql >GRANT ALL ON * [laravel] TO 'root'@'127.0.0.1' IDENTIFIED BY 'root';
 
 
@@ -31,7 +39,9 @@ Criando a camada de repository
 
 
 (isolar a logica de acesso a dados construção de querys complexas) 
+
 **Evitar a responsabilidade de logica de negocio pela controller
+
 **Limpeza da model e Controller
 
 
@@ -42,7 +52,9 @@ criar um metodo construtor para receber a model/entidade
 declarar a model/entidade como atributo da classe nivel de acesso protected
 fazer a importação da model e injeção de dependencia da model/entidade no construtor para capturar a model dentro do repository
 this->ClassEntity = $model// recebida pelo construtor
+
 **Controller passa a acessar o repository e nao a model/entidade**
+
 Controller passa a ter um
 constructor recebe a instancia do repository
 Controller passará a retornar um resource agora de repository
@@ -62,6 +74,24 @@ function index()
     return CourseResource::collection($this->repository->all());
 };
 ?>
+
+Criando um Modulo que fará referencia a um curso
+
+Um curso tem varios Modulos
+
+mas um Modulo Só pertence a um curso neste caso temos o relacionamento 
+One Course To Many Modules
+One To Many
+
+Passo a Passo criar o Model Module -mc // Migration e Controller
+Usar A trait do Uuid e especificar os campos que serão preenchidos na model
+implementar na controller o uso da repositary layer
+
+no caso da relacao one to many, será usada a chave estranheira
+na funcao index da controller sendo passada pelo parametro da url exemplo ObjetoA/{idObjetoA}/ObjetoB
+
+Apos isso pode ser criado o Relacionamento nas Models.
+
 
 
 

@@ -6,7 +6,8 @@ use Illuminate\Support\Facades\Route;
 // Imports the Api namespace from the controllers folder
 use App\Http\Controllers\Api\{
     CourseController,
-    ModuleController
+    ModuleController,
+    LessonController
 };
 
 
@@ -17,14 +18,32 @@ use App\Http\Controllers\Api\{
 |
 */
 
-//Courses
+// ====================================================== //
+// ======================= Courses ====================== //
+// ====================================================== //
 
 Route::get('/courses', [CourseController::class, 'index']);
 Route::get('/courses/{id}', [CourseController::class, 'show']);
 
-//Api Modules ## courses/{id}/moddules
+// ====================================================== //
+// ======== Api Modules ## courses/{id}/moddules ======== //
+// ====================================================== //
 
 Route::get('/courses/{id}/modules', [ModuleController::class, 'index']);
+
+// ====================================================== //
+// =================== Api de Lessons =================== //
+// ====================================================== //
+
+Route::get('/modules/{id}/lessons', [LessonController::class, 'index']);
+Route::get('/lessons/{id}', [LessonController::class, 'show']);
+
+
+
+// ====================================================== //
+// ================= Saida padrao Abaixo ================ //
+// ====================================================== //
+
 
 
 Route::get('/', function () {

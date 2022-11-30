@@ -45,6 +45,7 @@ Route::get('/lessons/{id}', [LessonController::class, 'show']);
 
 //Retornar suportes de uma aula
 Route::get('/supports', [SupportController::class, 'index']); // Chumbar um usuario e apos trocar pra usuario autenticado
+Route::post('/supports', [SupportController::class, 'store']); // metodo de insercao Na Support Controller
 
 
 

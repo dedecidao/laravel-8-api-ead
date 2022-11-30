@@ -29,6 +29,7 @@ class Support extends Model
     protected $fillable = [
         'status',
         'description',
+        'lesson_id'
     ];  
 
     // ##################################################################### //

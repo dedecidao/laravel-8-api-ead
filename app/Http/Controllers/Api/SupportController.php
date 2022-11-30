@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreSupport;
 use App\Http\Resources\SupportResource;
 use App\Repositories\SupportRepository;
 
@@ -26,6 +27,13 @@ class SupportController extends Controller
         //$supports = $this->repository->getSupportsByLessonId(?); Recupera usando o repo antes de mandar depois gerar um resource
         $supports = $this->repository->getSupports($request->all());
         return SupportResource::collection($supports);
+    }
+
+    public function store(StoreSupport $request) // Injecao da Validacao
+    {
+        $support = $this->repository->createNewSupport($request->validated());
+
+        return new SupportResource($support);
     }
 
 

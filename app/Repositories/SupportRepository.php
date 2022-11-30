@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Models\ReplySupport;
 use App\Models\Support;
 use App\Models\User;
 
@@ -56,5 +57,22 @@ class SupportRepository
             ]);
 
         return $support;
+    }
+
+    public function createReplyToSupportId(string $idSupport, array $data)
+    {
+        $user = $this->getUserAuth();
+            //dd($user);
+            return $this->getSupport($idSupport)
+                ->replies() // relacionamento a ser creiado la no Objeto Suport
+                ->create([
+                    'description' => $data['description'],
+                    'user_id'     => $user->id             
+                ]);
+    }
+
+    public function getSupport(string $idSupport): Support
+    {
+        return $this->entity->findOrFail($idSupport);
     }
 }

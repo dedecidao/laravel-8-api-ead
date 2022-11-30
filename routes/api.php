@@ -20,33 +20,34 @@ use App\Http\Controllers\Api\{
 */
 
 // ====================================================== //
-// ======================= Courses ====================== //
+// =================== Api Courses ====================== //
 // ====================================================== //
 
 Route::get('/courses', [CourseController::class, 'index']);
 Route::get('/courses/{id}', [CourseController::class, 'show']);
 
 // ====================================================== //
-// ======== Api Modules ## courses/{id}/moddules ======== //
+// ======== Api Modules ## courses/{id}/modules ========= //
 // ====================================================== //
 
 Route::get('/courses/{id}/modules', [ModuleController::class, 'index']);
 
 // ====================================================== //
-// =================== Api de Lessons =================== //
+// =================== Api Lessons ====================== //
 // ====================================================== //
 
 Route::get('/modules/{id}/lessons', [LessonController::class, 'index']);
 Route::get('/lessons/{id}', [LessonController::class, 'show']);
 
 // ====================================================== //
-// =================== Api de Support =================== //
+// =================== Api Support ====================== //
 // ====================================================== //
 
 //Retornar suportes de uma aula
 Route::get('/supports', [SupportController::class, 'index']); // Chumbar um usuario e apos trocar pra usuario autenticado
 Route::post('/supports', [SupportController::class, 'store']); // metodo de insercao Na Support Controller
 
+Route::post('/supports/{id}/replies', [SupportController::class, 'createReply']); 
 
 
 // ====================================================== //

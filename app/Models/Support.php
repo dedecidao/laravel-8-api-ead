@@ -46,4 +46,13 @@ class Support extends Model
         return $this->belongsTo(Lesson::class);
     }
 
+    // ====================================================== //
+    // ============ Relacionamento com Respostas ============ // 
+    // ====================================================== //
+
+    // Um suporte Has Many Replies
+    public function replies()
+    {
+        return $this->hasMany(ReplySupport::class);
+    }
 }

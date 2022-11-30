@@ -14,8 +14,13 @@ class CreateSupportsTable extends Migration
     public function up()
     {
         Schema::create('supports', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->uuid('user_id')->nullable(false); // Ligacao com a tabele de user um suport esta atrelado a uma aula e uma licao
+            $table->uuid('lesson_id')->nullable(false); // Ligacao Indireta com a tabela Lesson
+            $table->enum('status', ['P','A','C'])->default('P'); //Enumeracao para Status do Suporte
+            $table->text('description');
             $table->timestamps();
+            
         });
     }
 

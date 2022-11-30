@@ -93,8 +93,27 @@ na funcao index da controller sendo passada pelo parametro da url exemplo Objeto
 Apos isso pode ser criado o Relacionamento nas Models.
 
 
+Comandos para voltar um php artisan migrate em alguns passos pra nao ser necessarios usar o fresh<?php
+php artisan migrate:rollback -step= (numero de passos em migrates q quer voltar)
 
 
+Gerar fake data for Support Factory Of Tinker
+
+Example:
+
+\App\Models\Support::factory()->create(number total generates);
+
+Criando Dez Suportes para um Usuario especifico e Aula Especifica
+
+\App\Models\Support::factory()->count(10)->create([
+    'user_id' => '203d63f5-b52f-4181-9467-2bf28d33b44a',
+    'lesson_id' => '418d1a8e-e7f6-46bd-93fc-d71ea5cf0c7a'
+]);
+
+
+// ##################################################################### //
+// ############################## FILTROS ############################## //
+// ##################################################################### //
 
 
 

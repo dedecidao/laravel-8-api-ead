@@ -18,4 +18,14 @@ class Lesson extends Model
         'description',
         'video'
     ];   
+
+    // ##################################################################### //
+    // ####### Relacionamentos de Lesson One Lesson Has Many Supports ###### //
+    // ##################################################################### //
+
+        
+    public function supports()
+    {
+        return $this->hasMany(Support::class); // Relacao de Um Lição para Muitos Suportes
+    }
 }

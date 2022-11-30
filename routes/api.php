@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\{
     CourseController,
     ModuleController,
-    LessonController
+    LessonController,
+    SupportController
 };
 
 
@@ -37,6 +38,13 @@ Route::get('/courses/{id}/modules', [ModuleController::class, 'index']);
 
 Route::get('/modules/{id}/lessons', [LessonController::class, 'index']);
 Route::get('/lessons/{id}', [LessonController::class, 'show']);
+
+// ====================================================== //
+// =================== Api de Support =================== //
+// ====================================================== //
+
+//Retornar suportes de uma aula
+Route::get('/supports', [SupportController::class, 'index']); // Chumbar um usuario e apos trocar pra usuario autenticado
 
 
 

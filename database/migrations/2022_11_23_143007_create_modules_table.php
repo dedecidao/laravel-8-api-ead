@@ -18,7 +18,7 @@ class CreateModulesTable extends Migration
             //Criacao da chave estrangeira q tera a informacao do curso atrelado a este modulo
            // $table->foreignId('course_id')->constrained('courses');
                         //Chave nesta tabela        // Restringido a tabela de Cursos
-            $table->uuid('course_id')->nullable(false);            
+            $table->uuid('course_id')->nullable(false);  // Saber o curso Relacionado
             $table->string('name');
             $table->timestamps();
         });

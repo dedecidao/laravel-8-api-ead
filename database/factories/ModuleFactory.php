@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ModuleFactory extends Factory
 {
+
+    
     protected $model = Module::class;
     
     /**

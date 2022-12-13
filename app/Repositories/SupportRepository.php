@@ -6,7 +6,6 @@ use App\Models\ReplySupport;
 use App\Models\Support;
 use App\Models\User;
 use App\Repositories\Traits\RepositoryTrait;
-use Illuminate\Database\Eloquent\Collection;
 
 class SupportRepository
 
@@ -30,7 +29,6 @@ class SupportRepository
 
     public function getSupports(array $filters = []) // Receber um array de filtros
     {
-        //dd('a');
         // Pegar us duvidas das aulas
         return $this->entity
             ->where(function ($query) use ($filters) { // tratando o Array de Filtros

@@ -45,8 +45,14 @@ Route::get('/lessons/{id}', [LessonController::class, 'show']);
 // ====================================================== //
 
 //Retornar suportes de uma aula
+Route::get('/my-supports', [SupportController::class, 'mySupports']); 
 Route::get('/supports', [SupportController::class, 'index']); // Chumbar um usuario e apos trocar pra usuario autenticado
 Route::post('/supports', [SupportController::class, 'store']); // metodo de insercao Na Support Controller
+
+
+// ====================================================== //
+// =================== Api Reply ====================== //
+// ====================================================== //
 
 Route::post('/replies', [ReplySupportController::class, 'createReply']); 
 

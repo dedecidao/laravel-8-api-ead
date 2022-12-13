@@ -32,6 +32,12 @@ class SupportController extends Controller
         return SupportResource::collection($supports);
     }
 
+    public function mySupports(Request $request)
+    {
+        $supports = $this->repository->getMySupports($request->all());
+        return SupportResource::collection($supports);
+    }
+
     public function store(StoreSupport $request) // Injecao da Validacao
     {
         $support = $this->repository->createNewSupport($request->validated());

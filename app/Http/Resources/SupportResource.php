@@ -25,7 +25,7 @@ class SupportResource extends JsonResource
             'lesson' => new LessonResource($this->lesson), // qua a lição que essa suporte está relacionado
             
             'replies' => ReplySupportResource::collection($this->replies), // colecao ja q sao varias respostas
-            'dt_updated'=> Carbon::make($this->updated_at)->format('Y-m-d H:i:s'), 
+            'dt_updated'=> Carbon::make($this->updated_at)->format('Y-m-d H:i:s'), // Carbo to format the timeStamp
         ];  
     }
 }

@@ -33,7 +33,7 @@ class ReplySupport extends Model
     protected $touches = ['support'];
 
     // ====================================================== //
-    // ======== Relacionamento Com Suporte e Usuario ======== //
+    // ======== Relacionamento Com Usuario e Suporte ======== //
     // ====================================================== //
 
     public function user()

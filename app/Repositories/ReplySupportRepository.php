@@ -4,18 +4,16 @@ namespace App\Repositories;
 
 use App\Models\ReplySupport;
 use App\Models\Support;
-use App\Models\User;
 use App\Repositories\Traits\RepositoryTrait;
 
-class SupportRepository
+class ReplySupportRepository
 
 {
     use RepositoryTrait;
 
-
     protected $entity;
 
-    public function __construct(Support $model)
+    public function __construct(ReplySupport $model)
     {
         $this->entity = $model;
     }
@@ -60,20 +58,17 @@ class SupportRepository
         return $support;
     }
 
-    public function createReplyToSupportId(string $idSupport, array $data)
+    public function createReplyToSupport(array $data)
     {
+
         $user = $this->getUserAuth();
-            //dd($user);
-            return $this->getSupport($idSupport)
-                ->replies() // relacionamento a ser creiado la no Objeto Suport
-                ->create([
-                    'description' => $data['description'],
-                    'user_id'     => $user->id             
-                ]);
+
+        return $this->entity
+                    ->create([
+                        'support_id'  => $data['support'],
+                        'description' => $data['description'],
+                        'user_id'     => $user->id             
+                    ]);
     }
 
-    public function getSupport(string $idSupport): Support
-    {
-        return $this->entity->findOrFail($idSupport);
-    }
 }

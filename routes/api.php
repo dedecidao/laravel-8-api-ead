@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\{
     CourseController,
     ModuleController,
     LessonController,
+    ReplySupportController,
     SupportController
 };
 
@@ -47,7 +48,7 @@ Route::get('/lessons/{id}', [LessonController::class, 'show']);
 Route::get('/supports', [SupportController::class, 'index']); // Chumbar um usuario e apos trocar pra usuario autenticado
 Route::post('/supports', [SupportController::class, 'store']); // metodo de insercao Na Support Controller
 
-Route::post('/supports/{id}/replies', [SupportController::class, 'createReply']); 
+Route::post('/replies', [ReplySupportController::class, 'createReply']); 
 
 
 // ====================================================== //

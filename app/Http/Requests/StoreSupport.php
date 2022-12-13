@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Models\Support;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rule; // Classe para regras de request / Validacao
 
 class StoreSupport extends FormRequest
 {

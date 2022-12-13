@@ -23,8 +23,8 @@ class SupportRepository
     public function getSupports(array $filters = []) // Receber um array de filtros
     {
 
-        // Pegar um usuario Autenticado
-        return $this->getUserAuth()
+        // Pegar us duvidas das aulas
+        return $this->entity
             ->supports()
             ->where(function ($query) use ($filters) { // tratando o Array de Filtros
                 if (isset($filters['lesson'])) {
